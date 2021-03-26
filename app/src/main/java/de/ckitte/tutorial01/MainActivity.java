@@ -1,5 +1,7 @@
 package de.ckitte.tutorial01;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void btnPressed(View v) {
+    public void btnNextPage(View v) {
         //expliziter Intent
         Intent myIntent = new Intent(this, SubActivity.class);
         myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -43,5 +46,30 @@ public class MainActivity extends AppCompatActivity {
         //Zum Ändern eines Textes gebraucht man eine Referenz auf diesen Text
         //TextView text = findViewById(R.id.txtChange);
         //text.setText(getResources().getText(R.string.newText));
+    }
+
+    public void btnClosePressed(View v) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+        dialog.setCancelable(false);
+
+        dialog.setTitle(getResources().getText(R.string.appCloseTitle));
+        dialog.setMessage(getResources().getText(R.string.appCloseMessage));
+
+        dialog.setPositiveButton(getResources().getText(R.string.appRunText), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do nothing. Positive means go on...
+            }
+        });
+
+        dialog.setNegativeButton(getResources().getText(R.string.appCloseText), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Close the App. Negative means shut down...
+                MainActivity.this.finish();
+            }
+        });
+
+        dialog.show();
     }
 }

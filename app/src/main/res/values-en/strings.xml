@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hello World</string>
+    <string name="deautlText">Welcome to my first app</string>
+    <string name="button01Text">Go to the next page…</string>
+
+    <string name="button02Text">Open my website…</string>
+
+    <string name="notification">Hello</string>
+
+    <string name="appCloseTitle">Close application?</string>
+    <string name="appCloseMessage">Should the application be closed?</string>
+    <string name="appCloseText">Exit</string>
+    <string name="appRunText">Cancel</string>
+    <string name="anwendung_beenden">Anwendung beenden</string>
+</resources>
