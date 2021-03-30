@@ -2,20 +2,18 @@ package de.ckitte.tutorial01;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -28,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d("Lifecycle", "OnResume");
+
     }
 
     @Override
@@ -36,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Lifecycle", "OnCreate");
 
         setContentView(R.layout.activity_main);
+
+        Button myFragment = findViewById(R.id.btnFragmentButton);
+        myFragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchFragment();
+            }
+        });
     }
 
     @Override
@@ -102,5 +109,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+
+    public void switchFragment() {
+        myReplaceFragment x = new myReplaceFragment();
+
+        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+        trans.replace(R.id.fragment, x);
+        trans.addToBackStack(x.getClass().toString());
+        trans.commit();
     }
 }

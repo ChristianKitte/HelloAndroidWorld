@@ -13,4 +13,6 @@
     <string name="appCloseText">Exit</string>
     <string name="appRunText">Cancel</string>
     <string name="anwendung_beenden">Anwendung beenden</string>
+
+    <string name="replacementFragmentText">My Replacement Fragment</string>
 </resources>

@@ -13,4 +13,6 @@
     <string name="appCloseText">Beenden</string>
     <string name="appRunText">Abbrechen</string>
     <string name="anwendung_beenden">Anwendung beenden</string>
+
+    <string name="replacementFragmentText">Mein Replacement Fragment</string>
 </resources>
